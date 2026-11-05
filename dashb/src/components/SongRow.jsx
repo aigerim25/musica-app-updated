@@ -7,9 +7,9 @@ function SongRow ({id, index, title, duration, heart, dots, onClick, addToLikedS
             <div className="song-rows">
                 <span className="index">{index + 1}</span>
                 <p className="song-title">{title}</p>
-                <p>{duration}</p>
-                <p>{song.artist ?? albumArtists}</p>
-                <p>{song.album ?? albumTitle}</p>
+                <span>{song.artist}</span>
+                <span>{song.album}</span>
+                <span>{song.duration}</span>
                 <div className="heart-dots">
                     <button className="favorite-button"onClick={() => 
                         {

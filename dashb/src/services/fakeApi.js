@@ -61,13 +61,32 @@ export async function getItemsList(query = "") {
           item.artists.toLowerCase().includes(search.toLowerCase()),
       );
     }
-    //add other filter fields here
-    //...
-    //
+    const genre = params.get("genre");
+    const decade = Number(params.get("decade"));
+
+    if (genre) {
+      items = items.filter((item) => item.genre === genre);
+    }
+
+    if (decade) {
+      items = items.filter(
+        (item) => item.year >= decade && item.year < decade + 10,
+      );
+    }
+  
 
     // SORT by name
     items = [...items].sort((a, b) => {
       switch (sort) {
+        case "year":
+          return a.year - b.year;
+        
+        case "year-desc":
+          return b.year - a.year;
+        
+        case "song-desc":
+          return b.songs.length - a.songs.length;
+      
         case "name-desc":
           return b.title.localeCompare(a.title);
 

@@ -1,21 +1,22 @@
 import SongRow from './SongRow'
-function AlbumDetails({title, artists, albumCardImg, songs, onClose, addToLikedSongs, likedSongs, removeFromLikedSongs, genre, year}) {
+function AlbumDetails({title, artists, cover, songs, onClose, addToLikedSongs, likedSongs, removeFromLikedSongs, genre, year, tagline}) {
     return (
         <section className="album-details">
             <div className="album-details-with-photo">
-                <img src={albumCardImg} alt="image" className="img"/>
+                <img src={cover} alt="image" className="img"/>
                 <div className="album-info">
                 <h3>{title}</h3>
                 <p>{artists}</p>
                 <span className="genre-year">{genre} • {year}</span>   
+                <p className="tagline">{tagline}</p>
                 </div>
             </div>
             <div className="subtitles">
                 <span></span>
                 <p>Song</p>
-                <p>Time</p>
                 <p>Artists</p>
                 <p>Album</p>
+                <p>Time</p>
                 <span></span>
             </div>
             <div className="song-list">
